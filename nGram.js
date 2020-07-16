@@ -61,15 +61,15 @@ let string = "The other day I went to the mall the other"
 
 console.log(commonNGrams(string, 2))
 
-sentence length  10
-n grams 
-uni-grams        10   
-bi-grams         9
-tri-grams        8
-4-gram           7
-5-gram           6
-6-gram           5 
-7-gram           4 
-8-gram           3 
-9-gram           2 
-10-gram          1
+// sentence length  10
+// n grams 
+// uni-grams        10   
+// bi-grams         9
+// tri-grams        8
+// 4-gram           7
+// 5-gram           6
+// 6-gram           5 
+// 7-gram           4 
+// 8-gram           3 
+// 9-gram           2 
+// 10-gram          1
