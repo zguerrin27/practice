@@ -7,12 +7,12 @@ function findMostFrequent(arr){
   var map = {};
   var mostFrequentElement = arr[0];
   
-    for(var i = 0; i<arr.length; i++){
+    for(var i = 0; i < arr.length; i++){
         if(!map[arr[i]]){
             map[arr[i]]=1;
         }else{
             ++map[arr[i]];
-            if(map[arr[i]]>map[mostFrequentElement]){
+            if(map[arr[i]] > map[mostFrequentElement]){
                 mostFrequentElement = arr[i];
             }
         }
@@ -23,7 +23,7 @@ function findMostFrequent(arr){
 console.log(findMostFrequent(arr1))
 
 
-var arr1=[3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3]; //array
+var arr1 = [3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3]; //array
 var mf = 1; //default maximum frequency
 var m = 0;  //counter
 var item;  //to store item with maximum frequency
