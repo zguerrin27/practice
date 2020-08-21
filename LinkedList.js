@@ -76,3 +76,18 @@ const hasCycle = (head) => {
   }
   return false;
 }
+
+
+// REVERSE A LINKED LIST  //O(n) is time becasue its based on the length of the linked list.. O(1) space is constant because this function doesnt grow..it just goes through the LL
+
+function reverseLinkedList(head) {
+	let p1 = null;
+	let p2 = head;
+	while(p2 !== null){
+		const p3 = p2.next;
+		p2.next = p1;
+		p1 = p2;
+		p2 = p3;
+	}
+	return p1;
+}
