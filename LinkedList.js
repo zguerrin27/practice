@@ -91,3 +91,74 @@ function reverseLinkedList(head) {
 	}
 	return p1;
 }
+
+function Node(val, next){
+  this.val = val;
+  this.next = next;
+}
+
+function mergeLinkedLists(l1, l2, k){
+  let l3 = new Node(null, null);
+  let current = l3;
+  let length = 0;
+
+  
+    while(l1 && l2){
+      if(l1.val <= l2.val){
+        current.next = l1;
+        l1 = l1.next;
+        length++;
+      } else {
+        current.next = l2;
+        l2 = l2.next;
+        length++;
+      }
+      current = current.next;
+    }
+  
+  
+    if(l1 === null){
+      current.next = l2;
+      length++;
+    }
+    if(l2 === null){
+      current.next = l1;
+      length++;
+    }
+  
+//   console.log(trimList(l3.next, 3));   // list is --> null, 1,3,5,6,9,10,15 so we pass in the l3.next which is 1
+//   return l3.next
+  
+  return trimList(l3.next, k)
+
+}
+
+
+function trimList(listHead, newLength){
+  if(newLength === 0) return "New Length cannot be 0";
+  let currentNode = listHead;
+  let count = 1; // we start this at 1 because we are being fed the first value in the linkedlist 
+ 
+  while(count <= newLength){
+    if(count === newLength){
+      currentNode.next = null;
+      return listHead
+    } else {
+      count++;
+      currentNode = currentNode.next;
+    }
+  }
+  
+  return -1
+}
+
+function printList(list){
+ 
+  let current = list;
+  let str = "";
+  while(current){
+    str += current.val + " ";
+    current = current.next;
+  }
+  return str
+}
