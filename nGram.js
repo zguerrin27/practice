@@ -1,43 +1,25 @@
 //NUMBER OF N-GRAMS IN A SENTENCE 
 
-let sentence = "The other day we went to the store for milk."
+const sentence = "The other day I, went to the, mall the, other mall the, mall the, day I day I day i";
 
-function nGrams(string, n){
-  let words = string.toLowerCase().split(' ');
+function buildGrams(string, n){
+  let strippedString = string.replace(/[,.]/g, "")
+  let words = strippedString.toLowerCase().split(' ');
   let lastGram = words.length - n;
   let grams = [];
-  let i, j;
   
-  for(i = 0; i < lastGram; i++){
-    let seq = '';
-    for(j = i; j < i + n; j++){
-      seq += words[j] + ' ';
+  for(let i = 0; i <= lastGram; i++){
+    let sequence = '';
+    for(let j = i; j < i + n; j++){
+      sequence += words[j] + " ";
     }
-    grams.push(seq);
+    grams.push(sequence)
   }
   return grams;
 }
 
-console.log(nGrams(sentence, 2))
-
-
-const sentence = "The other day, I went to the mall, the other.. mall the mall, thes day .I. day I. day. i";
-
 function mostCommonNGram(string, n){
-  let strippedString = string.replace(/[,.]/g, '')
-  let words = strippedString.toLowerCase().split(' ');
-  // let words = string.toLowerCase().split(' ');
-  let grams = [];
-  let lastGram = words.length - n;
-  
-  for(let i = 0; i <= lastGram; i++){
-    let seq = "";
-    for(let j = i; j < i + n; j++){
-      seq += words[j] + " "
-    }
-    grams.push(seq)
-  }
-  
+  let grams = buildGrams(string, n)
   let mf = grams[0];
   let map = {};
   
@@ -45,19 +27,17 @@ function mostCommonNGram(string, n){
     if(!map[grams[m]]){
       map[grams[m]] = 1;
     } else {
-      ++map[grams[m]];
+      map[grams[m]]++;
       if(map[mf] < map[grams[m]]){
         mf = grams[m];
       }
     }
   }
-  
   console.log(map)
   return mf;
-  
 }
 
-console.log(mostCommonNGram(sentence, 2));
+console.log(mostCommonNGram(sentence, 2))
 
 // sentence length  10
 // n grams 
